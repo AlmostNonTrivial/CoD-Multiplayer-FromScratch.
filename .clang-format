@@ -1,0 +1,9 @@
+AlwaysBreakAfterReturnType: All
+BasedOnStyle: Microsoft
+UseTab: Always
+AlignTrailingComments: true
+AlignConsecutiveMacros: true
+AlignConsecutiveDeclarations: true
+SpaceAfterCStyleCast: false
+SortIncludes: false
+InsertBraces: true

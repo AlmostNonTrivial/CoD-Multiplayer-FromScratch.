@@ -1,0 +1,5 @@
+CompileFlags:
+  Add:
+    - -I/opt/homebrew/include
+    - -I/opt/homebrew/include/freetype2
+    - -std=c++23
