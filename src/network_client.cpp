@@ -2,7 +2,7 @@
  * Reliable UDP Networking abstraction
  *
  * All networking is packet based. TCP provides reliability and ordering
- * by storing the packets until getting an explicit ack for THAT packet back, and resending after a certain
+ * by storing the packets until getting an explicit ack for **that** packet back, and resending after a certain
  * time frame, and ordering is achieved by just numbering each packet sent, so that the recipient knows how to
  * reconstruct it.
  *
@@ -17,7 +17,7 @@
  * Each packet sent via UDP has a header with an ack bitfield that acts as a sliding window where we can
  * encode which of the last 32 message we received from that peer.
  *
- * Essentially, acks for reliable messages can piggy-back of the existing traffic
+ * Essentially, acks for reliable messages can piggy-back **off** the existing traffic
  *
  * Unreliable message are send and discarded, reliable messages are kept until we get our ack and
  * then freed.
