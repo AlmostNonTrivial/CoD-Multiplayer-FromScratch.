@@ -1,18 +1,18 @@
 /*
- * Snapshot packet compression via lossy integer encoding.
+ * Snapshot packet compression via lossy integer encoding (quantization).
  *
  * We sacrifice precision to save bandwidth without noticeable quality loss. The dominant
  * source of visual error is (by a significant margin) latency/jitter.
- * Position compressed from float (4 bytes) to int16_t (2 bytes) by scaling by 500, which
- * gives ±65m range at 2mm precision, which isn't noticeable.
+ * Position compressed from float (4 bytes) to int16_t (2 bytes) by multiplying by 500, which
+ * gives ±65m range at 2mm precision, which isn't visually perceptible.
  *
  * We could go A LOT further on space savings, either by quantizing input packets, or by implementing
- * delta encoding. The latter is where each snapshot no longer has the full game state, but only what has
- * changed from the last snapshot, Requiring change tracking and stateful decoding
+ * delta encoding. The latter is where each snapshot no longer has the full game state, but only the changes
+ * from the last snapshot. This requires change tracking and stateful decoding
  * on both sides.
  *
- * To clarify, quantization doesn't make any difference whatsoever here, but bandwidth reduction is
- * something that proper systems do, so it's worth implementing at least a lite version.
+ * To clarify, proper bandwidth reduction is something that professional systems do, so it's worth
+ * implementing at least a lite version like this quantization.
  */
 
 #include "quantization.hpp"
