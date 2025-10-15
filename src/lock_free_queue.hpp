@@ -1,19 +1,18 @@
-
 /*
  * Single-producer single-consumer lock-free queue for cross-thread communication.
  *
  * In our use case, we have a thread that listens for incoming packets and stores them
  * to be polled by the main thread. To get thread safety, we could use a lock, but
- * the because of the potentially high frequency of reception (the server is receiving 60 packets
- * per second per player at full chap) the lock could be a bottleneck.
+ * because of the potentially high frequency of reception (the server is receiving 60 packets
+ * per second per player at **full load**) the lock could be a bottleneck.
  *
- * To understand a lock free queue you need to understand atomics, and memory ordering, and presumably
- * a lot of other cool stuff: https://www.youtube.com/watch?v=K3P_Lmq6pw0
+ * To understand a **lock-free queue**, you need to understand atomics, and memory ordering, and presumably
+ * a lot of other cool stuff: [https://www.youtube.com/watch?v=K3P_Lmq6pw0](https://www.youtube.com/watch?v=K3P_Lmq6pw0)
  *
  * The gist is: it's a ring buffer, where one thread owns the write position, another owns the read position
  * and atomics make sure they don't overlap due to a race condition.
  *
- * While not actually effecting correctness, we want entries to fit within, and aligned to a single cache line
+ * While not actually **affecting** correctness, we want entries to fit within, and aligned to a single cache line
  * to avoid something called 'false sharing', where multiple threads access variables within the same cache line.
  */
 
