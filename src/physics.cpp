@@ -1,8 +1,7 @@
 /*
- * Physics that is shared between between client and server
+ * Physics shared between between client and server
  *
- * FPS multiplayer games usually don't have very advanced physics, with movement coming from
- * velocity based integration rather than using higher derivatives, and the only thing really modelled
+ * FPS multiplayer games don't usually have advanced physics. The only thing really modelled
  * is the projectile motion of a grenade, and gravity.
  *
  * So the job of physics is basic and fast collision checking and resolution rather than simulating dynamics.
