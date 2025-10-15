@@ -6,10 +6,10 @@
  * Send it to the server (every frame)
  * Apply the input using functions shared between client and server
  * Store the input in a queue
- * Interpolate between two snapshots of the **game state it has** received from the server
+ * Interpolate between two snapshots of the game state it has received from the server
  * Render
  *
- * When it receives **snapshots** from the server it will:
+ * When it receives snapshots from the server it will:
  * Add them to a rolling history
  * Resolve where the user's player is given the inputs the user has processed
  *
@@ -17,11 +17,11 @@
  * game loop is split such that the update occurs on the server. The input and updates
  * have to be sent between client and server respectively.
  *
- * Because of bandwidth **constraints**, there are **fewer** snapshots arriving **than** the framerate, so
+ * Because of bandwidth constraints, there are fewer snapshots arriving than the framerate, so
  * the client must render some time in the past, and interpolate between snapshots for the game to
  * look smooth.
  *
- * Because of latency, waiting for snapshots to drive the player would subject the player **to** 50~200ms
+ * Because of latency, waiting for snapshots to drive the player would subject the player to 50~200ms
  * latency, which feels unbearable, so we run the simulation on the client, just for our
  * player using the inputs we send to the server.
  *
