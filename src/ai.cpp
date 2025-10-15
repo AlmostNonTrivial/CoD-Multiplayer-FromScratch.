@@ -4,12 +4,12 @@
  * This file implements a basic agent interacting with the server in the same
  * way as a real player would, aka, via a network client.
  *
- * This feature is primarily for testing rather than for **its** own sake. Further,
+ * This feature is primarily for testing rather than for its own sake. Further,
  * no friends were willing to help.
  *
  * Using the map geometry, we generate some basic spatial data to give us a set of points
  * on the map that NPCs can walk between, helpers to determine which points are within line
- * of **sight** from a given point. And where, given a position and an **enemy's** position, would
+ * of sight from a given point. And where, given a position and an enemy's position, would
  * provide cover.
  *
  * There is some duplicate client logic here, but in an effort to keep the client.cpp as streamlined
